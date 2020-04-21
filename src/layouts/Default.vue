@@ -18,14 +18,6 @@ export default {
 }
 </script>
 
-<static-query>
-query {
-  metadata {
-    siteName
-  }
-}
-</static-query>
-
 <style>
 body {
   font-family: 'Futura-medium', sans-serif;
