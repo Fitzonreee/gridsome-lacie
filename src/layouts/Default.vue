@@ -18,9 +18,15 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+@font-face {
+  font-family: Futura-book-bt;
+  src: url('../assets/fonts/futura-book-bt.ttf');
+}
+
 body {
-  font-family: 'Futura-medium', sans-serif;
+  font-family: 'Futura-book-bt', sans-serif;
   margin:0;
   padding:0;
   line-height: 1.5;

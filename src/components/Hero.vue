@@ -5,11 +5,11 @@
       <div class="hero__content">
         
         <div class="hero__slider">
-          <g-image v-if="showFirst" :class="{active: showFirst}" class="image" alt="LaCie Big12" src="~/assets/images/LaCie_12big_right_be.jpg"/>
-          <g-image v-if="!showFirst" class="image" alt="LaCie Big12" src="~/assets/images/LaCie_12big_right_be_exp.jpg"/>
+          <g-image v-if="show" :class="{active: show}" class="image" alt="LaCie Big12" src="~/assets/images/LaCie_12big_right_be.jpg"/>
+          <g-image v-if="!show" class="image" alt="LaCie Big12" src="~/assets/images/LaCie_12big_right_be_exp.jpg"/>
           <ul class="dots">
-            <li v-on:click="showFirst = true" class="dot" :class="{active: showFirst}"></li>
-            <li v-on:click="showFirst = false" class="dot" :class="{active: !showFirst}"></li>
+            <li v-on:click="show = true" class="dot" :class="{active: show}"></li>
+            <li v-on:click="show = false" class="dot" :class="{active: !show}"></li>
           </ul>
         </div>
         
@@ -18,7 +18,7 @@
         </div>
         
         <div class="hero__copy-wrapper">
-          <h2 class="hero__sub-headline">Introducing the world's largest desktop DAS drive. The new LaCie 12big Thunderbolt 3 <span>|</span><span>96TB</span></h2>
+          <h2 class="hero__sub-headline">Introducing the world's largest desktop DAS drive.<br class="large"> The new LaCie 12big Thunderbolt 3 <span class="text-dark">| 96TB</span></h2>
           <p class="hero__copy">The new LaCie 12big Thunderbolt 3 has all the capacity and speed to make your biggest ideas come to life.</p>
           <a href="#" class="hero__cta">Learn more</a>
         </div>
@@ -32,7 +32,7 @@ export default {
   name: 'Hero',
   data() {
     return {
-      showFirst: true,
+      show: true,
     }
   }
 }
@@ -50,22 +50,12 @@ export default {
 
   &__image {
     max-width: 130%;
-    // max-width: 972px;
     display: block;
 
-  
     @include medium {
-      margin: -2em auto 0 auto;
+      max-width: 972px;
     }
     
-  }
-
-  &__cta {
-    background: $darkBlue;
-    color: $white;
-    text-decoration: none;
-    text-transform: uppercase;
-    padding: 0.5em 2em;
   }
 
   &__content {
@@ -73,11 +63,11 @@ export default {
     grid-template-columns: 150px auto;
     grid-template-rows: repeat(2, minmax(min-content, auto));
     padding: 2em;
+    margin: 0 auto;
 
     @include medium {
-      grid-template-columns: 300px auto;
-      grid-template-rows: repeat(2, minmax(min-content, auto));
-      padding: 2em 0 4em 0;
+      grid-template-columns: 250px auto;
+      /* grid-template-rows: repeat(2, minmax(min-content, auto)); */
     }
   }
 
@@ -115,7 +105,7 @@ export default {
     color: $darkBlue;
 
     @include medium {
-      font-size: 40px;
+      font-size: 30px;
       padding-bottom: 0em;
     }
 
@@ -147,11 +137,26 @@ export default {
       font-size: 26px;
     }
 
+    .text-dark {
+      color: $darkBlue;
+    }
+
   }
 
   &__copy {
     color: $gray;
     font-size: 16px;
+    max-width: 80%;
+  }
+
+  &__cta {
+    background: $darkBlue;
+    color: $white;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 0.5em 2em;
+    margin-top: 1em;
+    letter-spacing: 1px;
   }
 
   .dots {
