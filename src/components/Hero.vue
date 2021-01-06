@@ -67,7 +67,6 @@ export default {
 
     @include medium {
       grid-template-columns: 250px auto;
-      /* grid-template-rows: repeat(2, minmax(min-content, auto)); */
     }
   }
 
